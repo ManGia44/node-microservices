@@ -1,6 +1,10 @@
 pipeline {
   agent any
 
+  tools {
+    nodejs 'node18'
+  }
+
   environment {
     SONAR_SCANNER_HOME = tool 'sonar-scanner'
   }
@@ -14,6 +18,8 @@ pipeline {
 
     stage('Install Dependencies') {
       steps {
+        sh 'node -v'
+        sh 'npm -v'
         sh 'cd user-service && npm install'
         sh 'cd product-service && npm install'
       }
