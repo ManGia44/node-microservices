@@ -1,5 +1,9 @@
 const request = require('supertest');
-const app = require('../app');
+const { app, server } = require('../app')
+
+afterAll(() => {
+	server.close()
+})
 
 describe('Product Service API', () => {
     it('GET /health should return OK', async () => {

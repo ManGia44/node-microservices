@@ -13,8 +13,9 @@ app.get('/products', (req, res) => {
 });
 
 const PORT = 3000;
-app.listen(PORT, () => {
-    console.log(`Product service running on port ${PORT}`);
-});
+const server = app.listen(PORT, () => {
+	console.log(`User service running on port ${PORT}`)
+})
 
-module.exports = app;
+module.exports = { app, server }
+
